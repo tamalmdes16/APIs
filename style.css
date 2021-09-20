@@ -19,8 +19,12 @@
     border-radius: 12px;
     object-fit: cover;
     object-position: 50% 50%;
-    background-color: black;
+    background-color: rgb(240, 240, 240);
+    color: black;
     
+}
+.img:empty{
+    display: none;
 }
 
 .img img {

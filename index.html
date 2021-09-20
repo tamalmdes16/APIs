@@ -52,7 +52,7 @@
                 {
                     for(let i=1; i<16; i++){
                         /* console.log(data.photos[0].src.original) */
-                        document.getElementById('img'+i).innerHTML=`<img src="${data.photos[i-1].src.original}" />`
+                        document.getElementById('img'+i).innerHTML=`<img src="${data.photos[i-1].src.original}" alt="Loading..."/>`
                     }
                 })
                 .catch(data =>
