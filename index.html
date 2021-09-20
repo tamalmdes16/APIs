@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <center>
+            <input type="text" name="searchkey" class="search" id="keyword">
+            <button onclick="searchimg(document.getElementById('keyword').value)"> Search Images</button>
+            
+            <div class="container" id="container">
+                
+                <div class="img" id="img1"></div>
+                <div class="img" id="img2"></div>
+                <div class="img" id="img3"></div>
+                <div class="img" id="img4"></div>
+                <div class="img" id="img5"></div>
+                <div class="img" id="img6"></div>
+                <div class="img" id="img7"></div>
+                <div class="img" id="img8"></div>
+                <div class="img" id="img9"></div>
+                <div class="img" id="img10"></div>
+                <div class="img" id="img11"></div>
+                <div class="img" id="img12"></div>
+                <div class="img" id="img13"></div>
+                <div class="img" id="img14"></div>
+                <div class="img" id="img15"></div>
+            </div>
+           
+            
+            </center>
+        
+        <script>
+           function searchimg(keyword)
+           {
+                fetch("https://api.pexels.com/v1/search?query="+keyword, {headers: {Authorization: "563492ad6f91700001000001e5ba88749881481b90478ce11edc4d39"}})
+
+                .then(resp => 
+                {
+                    return resp.json()
+                })
+                .then(data => 
+                {
+                    for(let i=1; i<16; i++){
+                        /* console.log(data.photos[0].src.original) */
+                        document.getElementById('img'+i).innerHTML=`<img src="${data.photos[i-1].src.original}" />`
+                    }
+                })
+                .catch(data =>
+                {
+                    alert("No results found!!!")
+                })
+           }
+
+        </script>
+    </body>
+</html>
